@@ -6,5 +6,7 @@
         xmlns:local="clr-namespace:BackwoodsMapleTracker"
         mc:Ignorable="d"
         Title="Production" Height="450" Width="800">
-    <Grid/>
+    <Grid>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="355,160,0,0" TextWrapping="Wrap" Text="Test" VerticalAlignment="Top" Width="120"/>
+    </Grid>
 </Window>

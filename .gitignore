@@ -1,4 +1,18 @@
 
+<<<<<<< HEAD
+*.lock
+
+*.ide
+
+*.ide-shm
+
+*.lref
+
+BackwoodsMapleTracker/obj/Debug/
+
+.vs/BackwoodsMapleTracker/v16/Server/sqlite3/
+=======
 .vs/BackwoodsMapleTracker/v16/Server/sqlite3/
 
 BackwoodsMapleTracker/obj/Debug/
+>>>>>>> main
