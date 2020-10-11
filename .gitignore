@@ -1,0 +1,12 @@
+
+*.lock
+
+*.ide
+
+*.ide-shm
+
+*.lref
+
+BackwoodsMapleTracker/obj/Debug/
+
+.vs/BackwoodsMapleTracker/v16/Server/sqlite3/
