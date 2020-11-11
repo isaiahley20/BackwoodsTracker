@@ -18,3 +18,5 @@ BackwoodsMapleTracker/obj/Debug/
 >>>>>>> main
 
 .vs/BackwoodsMapleTracker/v16/.suo
+
+*.csproj
