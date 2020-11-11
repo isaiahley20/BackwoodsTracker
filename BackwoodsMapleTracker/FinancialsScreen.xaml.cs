@@ -92,5 +92,10 @@ namespace BackwoodsMapleTracker
         {
 
         }
+
+        private void Btn_Click_Toggle(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

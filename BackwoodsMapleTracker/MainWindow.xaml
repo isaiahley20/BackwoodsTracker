@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBox Height="50" Margin="215,20,213.333,0" TextWrapping="Wrap" Text="Backwoods Maple Tracker" VerticalAlignment="Top" TextChanged="TextBox_TextChanged" FontSize="36" FontFamily="Tw Cen MT Condensed Extra Bold"/>
+        <TextBox Height="50" Margin="215,20,213.333,0" TextWrapping="Wrap" Text="Backwoods Maple Tracker" VerticalAlignment="Top" FontSize="36" FontFamily="Tw Cen MT Condensed Extra Bold"/>
         <Button Content="Production" HorizontalAlignment="Left" Margin="102,237,0,0" VerticalAlignment="Top" Width="118" Click="Button_Click_2" FontSize="18" BorderThickness="1,2,1,1" BorderBrush="#FF155CFF" Background="White" Foreground="#FF6E9AFF" Height="33"/>
         <Button Content="Financials" HorizontalAlignment="Left" Margin="102,295,0,0" VerticalAlignment="Top" Width="118" Click="Button_Click_1" FontSize="18" Background="White" BorderBrush="#FF155CFF" Foreground="#FF6E9AFF" Height="33"/>
         <Button Content="Inventory" HorizontalAlignment="Left" Margin="102,352,0,0" VerticalAlignment="Top" Width="118" Click="Button_Click" FontSize="18" Background="White" BorderBrush="#FF155CFF" Foreground="#FF6E9AFF" Height="33"/>

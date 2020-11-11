@@ -83,5 +83,20 @@ namespace BackwoodsMapleTracker
         {
 
         }
+
+        private void Btn_Click_Production(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_Click_Financials(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_Click_Inventory(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
