@@ -1,0 +1,26 @@
+﻿<Window x:Class="BackwoodsMapleTracker.FinancialsScreen"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BackwoodsMapleTracker"
+        mc:Ignorable="d"
+        Title="FinancialsScreen" Height="450" Width="800">
+    <Grid>
+        <Button Content="Production" HorizontalAlignment="Left" Margin="40,116,0,0" VerticalAlignment="Top" Width="118" Click="Btn_Click_Production" FontSize="18" BorderThickness="1,2,1,1" BorderBrush="#FF155CFF" Background="White" Foreground="#FF6E9AFF" Height="33"/>
+        <Button Content="Financials" HorizontalAlignment="Left" Margin="40,174,0,0" VerticalAlignment="Top" Width="118" Click="Btn_Click_Financials" FontSize="18" Background="White" BorderBrush="#FF155CFF" Foreground="#FF6E9AFF" Height="33"/>
+        <Button Content="Inventory" HorizontalAlignment="Left" Margin="40,231,0,0" VerticalAlignment="Top" Width="118" Click="Btn_Click_Inventory" FontSize="18" Background="White" BorderBrush="#FF155CFF" Foreground="#FF6E9AFF" Height="33"/>
+        <lvc:CartesianChart Series="{Binding SeriesCollection}" Margin="260,48,10.333,157.667" LegendLocation="Right" >
+            <lvc:CartesianChart.AxisY>
+                <lvc:Axis Title="Pints Produced" LabelFormatter="{Binding YFormatter}"></lvc:Axis>
+            </lvc:CartesianChart.AxisY>
+            <lvc:CartesianChart.AxisX>
+                <lvc:Axis Title="Date" Labels="{Binding Labels}"></lvc:Axis>
+            </lvc:CartesianChart.AxisX>
+        </lvc:CartesianChart>
+        <Button Content="New Entry" HorizontalAlignment="Left" Margin="112,310,0,0" VerticalAlignment="Top" Width="118" Click="Btn_Click_New_Entry" FontSize="18" Background="#FF155CFF" BorderBrush="#FF155CFF" Foreground="White" Height="33" RenderTransformOrigin="0.915,0.778"/>
+        <Button Content="Toggle Graph" HorizontalAlignment="Left" Margin="465,10,0,0" VerticalAlignment="Top" Width="118" Click="Btn_Click_Toggle" FontSize="18" Background="#FF155CFF" BorderBrush="#FF155CFF" Foreground="White" Height="33" RenderTransformOrigin="0.915,0.778"/>
+        <DataGrid HorizontalAlignment="Left" Height="132" Margin="260,263,0,0" VerticalAlignment="Top" Width="523"/>
+    </Grid>
+</Window>
