@@ -87,5 +87,10 @@ namespace BackwoodsMapleTracker
         {
 
         }
+
+        private void Btn_Click_New_Entry(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
