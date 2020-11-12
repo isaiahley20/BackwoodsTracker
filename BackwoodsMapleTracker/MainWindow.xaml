@@ -7,11 +7,23 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBox Height="50" Margin="215,20,213.333,0" TextWrapping="Wrap" Text="Backwoods Maple Tracker" VerticalAlignment="Top" FontSize="36" FontFamily="Tw Cen MT Condensed Extra Bold"/>
-        <Button Content="Production" HorizontalAlignment="Left" Margin="102,237,0,0" VerticalAlignment="Top" Width="118" Click="Button_Click_2" FontSize="18" BorderThickness="1,2,1,1" BorderBrush="#FF155CFF" Background="White" Foreground="#FF6E9AFF" Height="33"/>
-        <Button Content="Financials" HorizontalAlignment="Left" Margin="102,295,0,0" VerticalAlignment="Top" Width="118" Click="Button_Click_1" FontSize="18" Background="White" BorderBrush="#FF155CFF" Foreground="#FF6E9AFF" Height="33"/>
-        <Button Content="Inventory" HorizontalAlignment="Left" Margin="102,352,0,0" VerticalAlignment="Top" Width="118" Click="Button_Click" FontSize="18" Background="White" BorderBrush="#FF155CFF" Foreground="#FF6E9AFF" Height="33"/>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                <GradientStop Color="#FFA8EDFF" Offset="1"/>
+                <GradientStop Color="White"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Button Content="Production" HorizontalAlignment="Left" Margin="102,237,0,0" VerticalAlignment="Top" Width="118" Click="Button_Click_Production" FontSize="18" BorderThickness="1,2,1,1" BorderBrush="#FF155CFF" Background="White" Foreground="#FF6E9AFF" Height="33"/>
+        <Button Content="Financials" HorizontalAlignment="Left" Margin="102,295,0,0" VerticalAlignment="Top" Width="118" Click="Button_Click_Financials" FontSize="18" Background="White" BorderBrush="#FF155CFF" Foreground="#FF6E9AFF" Height="33"/>
+        <Button Content="Inventory" HorizontalAlignment="Left" Margin="102,352,0,0" VerticalAlignment="Top" Width="118" Click="Button_Click_Inventory" FontSize="18" Background="White" BorderBrush="#FF155CFF" Foreground="#FF6E9AFF" Height="33"/>
         <Image Margin="276,70,275.333,216.667" Source="backwoods maple syrup label.png" Stretch="Fill"/>
+        <Label Content="Backwoods Maple Tracker" Height="45" Margin="215,20,203.333,0" VerticalAlignment="Top" FontSize="36" FontFamily="Tw Cen MT Condensed Extra Bold"/>
+        <Label Content="Sap/Syrup Currently = " HorizontalAlignment="Left" Margin="395,237,0,0" VerticalAlignment="Top" FontFamily="Corbel" FontSize="20"/>
+        <Label Content="Sap/Syrup Expected Next = " HorizontalAlignment="Left" Margin="348,295,0,0" VerticalAlignment="Top" FontFamily="Corbel" FontSize="20"/>
+        <Label Content="Jars Available to Fill = " HorizontalAlignment="Left" Margin="394,353,0,0" VerticalAlignment="Top" FontFamily="Corbel" FontSize="20"/>
+        <Label Content="1/30" HorizontalAlignment="Left" Margin="595,237,0,0" VerticalAlignment="Top" FontFamily="Corbel" FontSize="20"/>
+        <Label Content="1/32" HorizontalAlignment="Left" Margin="595,295,0,0" VerticalAlignment="Top" FontFamily="Corbel" FontSize="20"/>
+        <Label Content="50" HorizontalAlignment="Left" Margin="595,353,0,0" VerticalAlignment="Top" FontFamily="Corbel" FontSize="20"/>
 
     </Grid>
 

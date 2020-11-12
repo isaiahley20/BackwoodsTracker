@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using LiveCharts;
 using LiveCharts.Wpf;
+using System.Data;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 
 namespace BackwoodsMapleTracker
 {
@@ -24,12 +27,24 @@ namespace BackwoodsMapleTracker
         public Production()
         {
             InitializeComponent();
+
+            DailySyrupProductionRecord test = new DailySyrupProductionRecord("10/11/2020", 1, 28);
+            DailySyrupProductionRecord test1 = new DailySyrupProductionRecord("10/12/2020", 2, 29);
+            DailySyrupProductionRecord test2 = new DailySyrupProductionRecord("10/13/2020", 2, 30);
+            //gets the data to put into the data grid
+            ObservableCollection<DailySyrupProductionRecord> syrupData = new ObservableCollection<DailySyrupProductionRecord>();
+            syrupData.Add(test);
+            syrupData.Add(test1);
+            syrupData.Add(test2);
+            DataGrid.DataContext = syrupData;
+
+
             SeriesCollection = new SeriesCollection(){
                 new LineSeries
                 {
-                    Title = "Series 1",
-                    Values = new ChartValues<double> { 4, 6, 5, 2, 4 }
-                },
+                    Title = "Accumulative Pints Produced",
+                    Values = new ChartValues<double> { 1, 3 }
+                }/*,
                 new LineSeries
                 {
                     Title = "Series 2",
@@ -42,19 +57,25 @@ namespace BackwoodsMapleTracker
                     Values = new ChartValues<double> { 4, 2, 7, 2, 7 },
                     PointGeometry = DefaultGeometries.Square,
                     PointGeometrySize = 15
-                }
+                }*/
             };
-            Labels = new[] { "Date1", "Date2" };
+
+            //modifying any series values will also animate and update the chart
+            SeriesCollection[0].Values.Add(8d);
+
+            Labels = new[] { "10/11/2020", "10/12/2020", "10/13/2020", "10/14/2020" };
             YFormatter = value => value.ToString("N");
             //YFormatter = value => value.ToString("C"); for currency
+            /*
             LineSeries temp = new LineSeries
             {
                 Title = "Pints Produced",
                 Values = new ChartValues<double> { 0.01, 0.011, 0.012, 0.013, 0.014 },
                 PointGeometrySize = 15
-            };
+            }; */
             //something.Add(temp);
             //modifying the series collection will animate and update the chart
+            /*
             SeriesCollection.Add(new LineSeries
             {
                 Title = "Series 4",
@@ -63,10 +84,11 @@ namespace BackwoodsMapleTracker
                 PointGeometry = Geometry.Parse("m 25 70.36218 20 -28 -20 22 -8 -6 z"),
                 PointGeometrySize = 50,
                 PointForeground = Brushes.Gray
-            });
+            });*/
 
-            //modifying any series values will also animate and update the chart
-            SeriesCollection[3].Values.Add(5d);
+
+            //SeriesCollection[3].Values.Add(5d);
+            
             DataContext = this;
         }
         public SeriesCollection SeriesCollection { get; set; }

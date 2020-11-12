@@ -25,19 +25,22 @@ namespace BackwoodsMapleTracker
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click_Production(object sender, RoutedEventArgs e)
         {
-
+            Production prod = new Production();
+            prod.Show();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Button_Click_Financials(object sender, RoutedEventArgs e)
         {
-
+            FinancialsScreen fin = new FinancialsScreen();
+            fin.Show();
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void Button_Click_Inventory(object sender, RoutedEventArgs e)
         {
-
+            InventoryScreen inven = new InventoryScreen();
+            inven.Show();
         }
 
     }

@@ -12,15 +12,18 @@ namespace BackwoodsMapleTracker
         public double syrupMadePints { get; }
         public double sapUsedPints { get; }
 
+        public string syrupSapRatio { get; }
+
         public DailySyrupProductionRecord(string dateValue, double syrupMadePintsValue, double sapUsedPintsValue)
         {
             date = dateValue;
             syrupMadePints = syrupMadePintsValue;
             sapUsedPints = sapUsedPintsValue;
+            syrupSapRatio = getSyrupSapRatio();
         }
         public string getSyrupSapRatio()
         {
-            return "1 : " + Math.Round((syrupMadePints / sapUsedPints), 1);
+            return "1 : " + Math.Round((sapUsedPints / syrupMadePints), 1);
         }
 
     }

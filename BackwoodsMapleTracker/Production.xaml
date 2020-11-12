@@ -8,20 +8,33 @@
         mc:Ignorable="d"
         Title="Production" Height="450" Width="800">
     <Grid>
-        <Button Content="Production" HorizontalAlignment="Left" Margin="40,116,0,0" VerticalAlignment="Top" Width="118" Click="Btn_Click_Production" FontSize="18" BorderThickness="1,2,1,1" BorderBrush="#FF155CFF" Background="White" Foreground="#FF6E9AFF" Height="33"/>
-        <Button Content="Financials" HorizontalAlignment="Left" Margin="40,174,0,0" VerticalAlignment="Top" Width="118" Click="Btn_Click_Financials" FontSize="18" Background="White" BorderBrush="#FF155CFF" Foreground="#FF6E9AFF" Height="33"/>
-        <Button Content="Inventory" HorizontalAlignment="Left" Margin="40,231,0,0" VerticalAlignment="Top" Width="118" Click="Btn_Click_Inventory" FontSize="18" Background="White" BorderBrush="#FF155CFF" Foreground="#FF6E9AFF" Height="33"/>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                <GradientStop Color="#FFA8EDFF" Offset="1"/>
+                <GradientStop Color="White"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Button Content="Production" HorizontalAlignment="Left" Margin="42,80,0,0" VerticalAlignment="Top" Width="118" Click="Btn_Click_Production" FontSize="18" BorderThickness="1,2,1,1" BorderBrush="#FF155CFF" Background="White" Foreground="#FF6E9AFF" Height="33"/>
+        <Button Content="Financials" HorizontalAlignment="Left" Margin="42,138,0,0" VerticalAlignment="Top" Width="118" Click="Btn_Click_Financials" FontSize="18" Background="White" BorderBrush="#FF155CFF" Foreground="#FF6E9AFF" Height="33"/>
+        <Button Content="Inventory" HorizontalAlignment="Left" Margin="42,196,0,0" VerticalAlignment="Top" Width="118" Click="Btn_Click_Inventory" FontSize="18" Background="White" BorderBrush="#FF155CFF" Foreground="#FF6E9AFF" Height="33"/>
         <lvc:CartesianChart Series="{Binding SeriesCollection}" Margin="260,48,10.333,157.667" LegendLocation="Right" >
             <lvc:CartesianChart.AxisY>
-                <lvc:Axis Title="Pints Produced" LabelFormatter="{Binding YFormatter}"></lvc:Axis>
+                <lvc:Axis Title="Accumulative Pints Produced" LabelFormatter="{Binding YFormatter}"></lvc:Axis>
             </lvc:CartesianChart.AxisY>
             <lvc:CartesianChart.AxisX>
                 <lvc:Axis Title="Date" Labels="{Binding Labels}"></lvc:Axis>
             </lvc:CartesianChart.AxisX>
         </lvc:CartesianChart>
-        <Button Content="New Entry" HorizontalAlignment="Left" Margin="112,310,0,0" VerticalAlignment="Top" Width="118" Click="Btn_Click_New_Entry" FontSize="18" Background="#FF155CFF" BorderBrush="#FF155CFF" Foreground="White" Height="33" RenderTransformOrigin="0.915,0.778"/>
+        <Button Content="New Entry" HorizontalAlignment="Left" Margin="87,300,0,0" VerticalAlignment="Top" Width="118" Click="Btn_Click_New_Entry" FontSize="18" Background="#FF155CFF" BorderBrush="#FF155CFF" Foreground="White" Height="33" RenderTransformOrigin="0.915,0.778"/>
         <Button Content="Toggle Graph" HorizontalAlignment="Left" Margin="465,10,0,0" VerticalAlignment="Top" Width="118" Click="Btn_Click_Toggle" FontSize="18" Background="#FF155CFF" BorderBrush="#FF155CFF" Foreground="White" Height="33" RenderTransformOrigin="0.915,0.778"/>
-        <DataGrid HorizontalAlignment="Left" Height="132" Margin="260,263,0,0" VerticalAlignment="Top" Width="523"/>
+        <DataGrid Name ="DataGrid" ItemsSource="{Binding}" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="132" Margin="260,263,0,0" VerticalAlignment="Top" Width="325">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Date"  Binding="{Binding date, Mode=OneWay}"/>
+                <DataGridTextColumn Header="Syrup Produced" Binding="{Binding syrupMadePints, Mode=OneWay}" />
+                <DataGridTextColumn Header="Sap Collected" Binding="{Binding sapUsedPints, Mode=OneWay}" />
+                <DataGridTextColumn Header="Syrup/Sap" Binding="{Binding syrupSapRatio, Mode=OneWay}" />
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 
 </Window>
