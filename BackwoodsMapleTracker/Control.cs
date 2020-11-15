@@ -3,36 +3,44 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 
 namespace BackwoodsMapleTracker
 {
     class Control
     {
-        private string mostRecentSapOverSyrupRatio()
+        Database dataBase = new Database();
+        public string mostRecentSapOverSyrupRatio()
         {
-            return "";
+            ObservableCollection<DailySyrupProductionRecord> dailyCostList = getDailySyrupProducedList();
+            int i = dailyCostList.Count();
+            DailySyrupProductionRecord mostRecent = dailyCostList.ElementAt(i-1);
+            return mostRecent.syrupSapRatio;
         }
-        private string calcExpectedNextSapOverSyrupRatio()
+        public string calcExpectedNextSapOverSyrupRatio()
         {
-            return "";
+            return "1/100";
         }
-        private int getPintBottlesAvail()
+        public int getPintBottlesAvail()
         {
-            return 0;
+            return dataBase.pintBottlesAvail;
         }
-        private int getHalfPintBottlesAvail()
+        public int getHalfPintBottlesAvail()
         {
-            return 0;
+            return dataBase.halfPintBottlesAvail;
         }
-        private int getQuartBottlesAvail()
+        public int getQuartBottlesAvail()
         {
-            return 0;
+            return dataBase.quartBottlesAvail;
         }
-        private List<DailySyrupProductionRecord> getDailySyrupProducedList()
+        public ObservableCollection<DailySyrupProductionRecord> getDailySyrupProducedList()
         {
-            List<DailySyrupProductionRecord> temp = new List<DailySyrupProductionRecord>();
-            return temp;
+            return dataBase.dailySyrupProducedList;
         }
-    
+        public ObservableCollection<DailyCostRecord> getDailyCostList()
+        {
+            return dataBase.dailyCostList;
+        }
+
     }
 }
