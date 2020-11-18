@@ -10,6 +10,11 @@ namespace BackwoodsMapleTracker
     class Control
     {
         Database dataBase = new Database();
+        public Control()
+        {
+            dataBase.LoadDailySyrupProducedList();
+            dataBase.LoadDailyCostList();
+        }
         public string mostRecentSapOverSyrupRatio()
         {
             ObservableCollection<DailySyrupProductionRecord> dailyCostList = getDailySyrupProducedList();
@@ -35,11 +40,11 @@ namespace BackwoodsMapleTracker
         }
         public ObservableCollection<DailySyrupProductionRecord> getDailySyrupProducedList()
         {
-            return dataBase.dailySyrupProducedList;
+            return dataBase.getDailySyrupProducedList();
         }
         public ObservableCollection<DailyCostRecord> getDailyCostList()
         {
-            return dataBase.dailyCostList;
+            return dataBase.getDailyCostList();
         }
 
     }

@@ -23,17 +23,13 @@ namespace BackwoodsMapleTracker
     /// </summary>
     public partial class FinancialsScreen : Window
     {
+        Control control = new Control();
         public FinancialsScreen()
         {
             InitializeComponent();
-
-            DailyCostRecord test = new DailyCostRecord("10/11/2020", "Liquid Propane", 150.57);
-            DailyCostRecord test1 = new DailyCostRecord("10/12/2020", "Jars", 32.78);
             //gets the data to put into the data grid
-            ObservableCollection<DailyCostRecord> syrupData = new ObservableCollection<DailyCostRecord>();
-            syrupData.Add(test);
-            syrupData.Add(test1);
-            DataGrid.DataContext = syrupData;
+            ObservableCollection<DailyCostRecord> dailyCostList = control.getDailyCostList();
+            DataGrid.DataContext = dailyCostList;
 
 
             
@@ -66,17 +62,6 @@ namespace BackwoodsMapleTracker
                 Values = new ChartValues<double> { 0.01, 0.011, 0.012, 0.013, 0.014 },
                 PointGeometrySize = 15
             };
-            //something.Add(temp);
-            //modifying the series collection will animate and update the chart
-            /*SeriesCollection.Add(new LineSeries
-            {
-                Title = "Series 4",
-                Values = new ChartValues<double> { 5, 3, 2, 4 },
-                LineSmoothness = 0, //0: straight lines, 1: really smooth lines
-                PointGeometry = Geometry.Parse("m 25 70.36218 20 -28 -20 22 -8 -6 z"),
-                PointGeometrySize = 50,
-                PointForeground = Brushes.Gray
-            });*/
 
             //modifying any series values will also animate and update the chart
             SeriesCollection[0].Values.Add(20d);

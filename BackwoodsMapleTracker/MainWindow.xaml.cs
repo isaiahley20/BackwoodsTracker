@@ -15,11 +15,9 @@ using System.Windows.Shapes;
 
 namespace BackwoodsMapleTracker
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
+        Control control = new Control();
         public MainWindow()
         {
             InitializeComponent();

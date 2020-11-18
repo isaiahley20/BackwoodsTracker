@@ -24,19 +24,14 @@ namespace BackwoodsMapleTracker
     /// </summary>
     public partial class Production : Window
     {
+        Control control = new Control();
         public Production()
         {
             InitializeComponent();
 
-            DailySyrupProductionRecord test = new DailySyrupProductionRecord("10/11/2020", 1, 28);
-            DailySyrupProductionRecord test1 = new DailySyrupProductionRecord("10/12/2020", 2, 29);
-            DailySyrupProductionRecord test2 = new DailySyrupProductionRecord("10/13/2020", 2, 30);
             //gets the data to put into the data grid
-            ObservableCollection<DailySyrupProductionRecord> syrupData = new ObservableCollection<DailySyrupProductionRecord>();
-            syrupData.Add(test);
-            syrupData.Add(test1);
-            syrupData.Add(test2);
-            DataGrid.DataContext = syrupData;
+            ObservableCollection<DailySyrupProductionRecord> dailyCostList = control.getDailySyrupProducedList();
+            DataGrid.DataContext = dailyCostList;
 
 
             SeriesCollection = new SeriesCollection(){
