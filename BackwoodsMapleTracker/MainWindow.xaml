@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BackwoodsMapleTracker"
+        WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
@@ -21,9 +22,9 @@
         <Label Content="Sap/Syrup Currently = " HorizontalAlignment="Left" Margin="395,237,0,0" VerticalAlignment="Top" FontFamily="Corbel" FontSize="20"/>
         <Label Content="Sap/Syrup Expected Next = " HorizontalAlignment="Left" Margin="348,295,0,0" VerticalAlignment="Top" FontFamily="Corbel" FontSize="20"/>
         <Label Content="Jars Available to Fill = " HorizontalAlignment="Left" Margin="394,353,0,0" VerticalAlignment="Top" FontFamily="Corbel" FontSize="20"/>
-        <Label Content="1/30" HorizontalAlignment="Left" Margin="595,237,0,0" VerticalAlignment="Top" FontFamily="Corbel" FontSize="20"/>
-        <Label Content="1/32" HorizontalAlignment="Left" Margin="595,295,0,0" VerticalAlignment="Top" FontFamily="Corbel" FontSize="20"/>
-        <Label Content="50" HorizontalAlignment="Left" Margin="595,353,0,0" VerticalAlignment="Top" FontFamily="Corbel" FontSize="20"/>
+        <Label Name="currentlyLabel" HorizontalAlignment="Left" Margin="595,237,0,0" VerticalAlignment="Top" FontFamily="Corbel" FontSize="20"/>
+        <Label Name="nextLabel" HorizontalAlignment="Left" Margin="595,295,0,0" VerticalAlignment="Top" FontFamily="Corbel" FontSize="20"/>
+        <Label Name="jarsAvailLabel" HorizontalAlignment="Left" Margin="595,353,0,0" VerticalAlignment="Top" FontFamily="Corbel" FontSize="20"/>
 
     </Grid>
 

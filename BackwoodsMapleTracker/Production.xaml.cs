@@ -19,100 +19,150 @@ using System.Diagnostics;
 
 namespace BackwoodsMapleTracker
 {
-    /// <summary>
-    /// Interaction logic for Production.xaml
-    /// </summary>
     public partial class Production : Window
     {
+        public SeriesCollection GraphLines { get; set; }
+        public string[] Dates { get; set; }
+        public Func<double, string> YFormatter { get; set; }
+
         Control control = new Control();
         public Production()
         {
             InitializeComponent();
-
-            //gets the data to put into the data grid
-            ObservableCollection<DailySyrupProductionRecord> dailyCostList = control.getDailySyrupProducedList();
-            DataGrid.DataContext = dailyCostList;
-
-
-            SeriesCollection = new SeriesCollection(){
-                new LineSeries
-                {
-                    Title = "Accumulative Pints Produced",
-                    Values = new ChartValues<double> { 1, 3 }
-                }/*,
-                new LineSeries
-                {
-                    Title = "Series 2",
-                    Values = new ChartValues<double> { 6, 7, 3, 4, 6 },
-                    PointGeometry = null
-                },
-                new LineSeries
-                {
-                    Title = "Series 3",
-                    Values = new ChartValues<double> { 4, 2, 7, 2, 7 },
-                    PointGeometry = DefaultGeometries.Square,
-                    PointGeometrySize = 15
-                }*/
-            };
-
-            //modifying any series values will also animate and update the chart
-            SeriesCollection[0].Values.Add(8d);
-
-            Labels = new[] { "10/11/2020", "10/12/2020", "10/13/2020", "10/14/2020" };
-            YFormatter = value => value.ToString("N");
-            //YFormatter = value => value.ToString("C"); for currency
-            /*
-            LineSeries temp = new LineSeries
-            {
-                Title = "Pints Produced",
-                Values = new ChartValues<double> { 0.01, 0.011, 0.012, 0.013, 0.014 },
-                PointGeometrySize = 15
-            }; */
-            //something.Add(temp);
-            //modifying the series collection will animate and update the chart
-            /*
-            SeriesCollection.Add(new LineSeries
-            {
-                Title = "Series 4",
-                Values = new ChartValues<double> { 5, 3, 2, 4 },
-                LineSmoothness = 0, //0: straight lines, 1: really smooth lines
-                PointGeometry = Geometry.Parse("m 25 70.36218 20 -28 -20 22 -8 -6 z"),
-                PointGeometrySize = 50,
-                PointForeground = Brushes.Gray
-            });*/
-
-
-            //SeriesCollection[3].Values.Add(5d);
             
+            //gets the data to put into the data grid
+            ObservableCollection<DailySyrupProductionRecord> dailyProductionRecords = control.GetDailySyrupProducedList();
+            DataGrid.DataContext = dailyProductionRecords;
+
+            //retrieves the values to be put into the chart
+            DailySyrupProductionRecord oneSyrupProductionRecordForChart;
+            var pintsProducedYAxis = new ChartValues<double>();
+            Dates = new string[dailyProductionRecords.Count()];
+            for (int i = 0; i < dailyProductionRecords.Count(); i++)
+            {
+                oneSyrupProductionRecordForChart = dailyProductionRecords.ElementAt<DailySyrupProductionRecord>(i);
+                //gets the syrup made
+                pintsProducedYAxis.Add(oneSyrupProductionRecordForChart.syrupMadePints);
+                //gets the date that syrup was made
+                Dates[i] = oneSyrupProductionRecordForChart.date;
+            }
+
+            GraphLines = new SeriesCollection(){
+                new LineSeries
+                {
+                    Title = "Cumulative Pints Produced",
+                    Values = pintsProducedYAxis
+                }
+            };
+            YFormatter = yAxisValues => yAxisValues.ToString("N");
             DataContext = this;
         }
-        public SeriesCollection SeriesCollection { get; set; }
-        public string[] Labels { get; set; }
-        public Func<double, string> YFormatter { get; set; }
 
-        private void Btn_Click_Production(object sender, RoutedEventArgs e)
-        {
-
-        }
-
+        //moves to financial screen
         private void Btn_Click_Financials(object sender, RoutedEventArgs e)
         {
-
+            FinancialsScreen financialsScreen = new FinancialsScreen();
+            financialsScreen.Show();
+            this.Close();
         }
 
+        //moves to inventory screen
         private void Btn_Click_Inventory(object sender, RoutedEventArgs e)
         {
-
+            InventoryScreen inventoryScreen = new InventoryScreen();
+            inventoryScreen.Show();
+            this.Close();
         }
 
-        private void Btn_Click_New_Entry(object sender, RoutedEventArgs e)
-        {
-
-        }
-
+        //toggles the chart from visible to not
         private void Btn_Click_Toggle(object sender, RoutedEventArgs e)
         {
+            if (Chart.Visibility == Visibility.Visible)
+            {
+                Chart.Visibility = Visibility.Hidden;
+                DataGrid.Margin = new Thickness(425, 70, 0, 0);
+                DataGrid.Height = 320;
+                image.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                image.Visibility = Visibility.Hidden;
+                Chart.Visibility = Visibility.Visible;
+                DataGrid.Margin = new Thickness(425, 263, 0, 0);
+                DataGrid.Height = 132;
+            }
+        }
 
+        //allows user to create new entry
+        private void Btn_Click_New_Entry(object sender, RoutedEventArgs e)
+        {
+            DataGrid.Margin = new Thickness(425, 263, 0, 0);
+            LabelDate.Visibility = Visibility.Visible;
+            LabelSapCollected.Visibility = Visibility.Visible;
+            LabelSyrupProd.Visibility = Visibility.Visible;
+            DateTxtBox.Visibility = Visibility.Visible;
+            ProducedTxtBox.Visibility = Visibility.Visible;
+            CollectedTxtBox.Visibility = Visibility.Visible;
+            ConfirmBtn.Visibility = Visibility.Visible;
+            CancelBtn.Visibility = Visibility.Visible;
+            NewEntryBtn.Visibility = Visibility.Hidden;
+        }
+
+        //confirm button for the new entry
+        private void Btn_Click_Confirm(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string newDate = DateTxtBox.Text;
+                double newSyrupProdNum = double.Parse(ProducedTxtBox.Text);
+                double newSapCollected = double.Parse(CollectedTxtBox.Text);
+                if(newSyrupProdNum < 0)
+                {
+                    throw new Exception("Invalid Data.");
+                }
+                if(newSapCollected < 0)
+                {
+                    throw new Exception("Invalid Data.");
+                }
+                DailySyrupProductionRecord newDailySyrupProductionRecord = new DailySyrupProductionRecord(newDate, newSyrupProdNum, newSapCollected);
+
+                DateTxtBox.Text = "";
+                ProducedTxtBox.Text = "";
+                CollectedTxtBox.Text = "";
+                LabelDate.Visibility = Visibility.Hidden;
+                LabelSapCollected.Visibility = Visibility.Hidden;
+                LabelSyrupProd.Visibility = Visibility.Hidden;
+                DateTxtBox.Visibility = Visibility.Hidden;
+                ProducedTxtBox.Visibility = Visibility.Hidden;
+                CollectedTxtBox.Visibility = Visibility.Hidden;
+                ConfirmBtn.Visibility = Visibility.Hidden;
+                CancelBtn.Visibility = Visibility.Hidden;
+                NewEntryBtn.Visibility = Visibility.Visible;
+                DataGrid.Margin = new Thickness(260, 263, 0, 0);
+            }
+            catch
+            {
+                MessageBox.Show("Invalid data entry.");
+            }
+
+        }
+
+        //cancel button for the new entry
+        private void Btn_Click_Cancel(object sender, RoutedEventArgs e)
+        {
+            DataGrid.Margin = new Thickness(260, 263, 0, 0);
+            DateTxtBox.Text = "";
+            ProducedTxtBox.Text = "";
+            CollectedTxtBox.Text = "";
+            LabelDate.Visibility = Visibility.Hidden;
+            LabelSapCollected.Visibility = Visibility.Hidden;
+            LabelSyrupProd.Visibility = Visibility.Hidden;
+            DateTxtBox.Visibility = Visibility.Hidden;
+            ProducedTxtBox.Visibility = Visibility.Hidden;
+            CollectedTxtBox.Visibility = Visibility.Hidden;
+            ConfirmBtn.Visibility = Visibility.Hidden;
+            CancelBtn.Visibility = Visibility.Hidden;
+            NewEntryBtn.Visibility = Visibility.Visible;
         }
     }
 }

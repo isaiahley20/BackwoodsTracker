@@ -6,6 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BackwoodsMapleTracker"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="Production" Height="450" Width="800">
     <Grid>
         <Grid.Background>
@@ -14,20 +15,22 @@
                 <GradientStop Color="White"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Button Content="Production" HorizontalAlignment="Left" Margin="42,80,0,0" VerticalAlignment="Top" Width="118" Click="Btn_Click_Production" FontSize="18" BorderThickness="1,2,1,1" BorderBrush="#FF155CFF" Background="White" Foreground="#FF6E9AFF" Height="33"/>
+        <Button Content="Production" HorizontalAlignment="Left" Margin="42,80,0,0" VerticalAlignment="Top" Width="118" FontSize="18" BorderBrush="#FF155CFF" Background="White" Foreground="#FF6E9AFF" Height="33" Opacity="0.75" BorderThickness="4,4,4,4"/>
         <Button Content="Financials" HorizontalAlignment="Left" Margin="42,138,0,0" VerticalAlignment="Top" Width="118" Click="Btn_Click_Financials" FontSize="18" Background="White" BorderBrush="#FF155CFF" Foreground="#FF6E9AFF" Height="33"/>
         <Button Content="Inventory" HorizontalAlignment="Left" Margin="42,196,0,0" VerticalAlignment="Top" Width="118" Click="Btn_Click_Inventory" FontSize="18" Background="White" BorderBrush="#FF155CFF" Foreground="#FF6E9AFF" Height="33"/>
-        <lvc:CartesianChart Series="{Binding SeriesCollection}" Margin="260,48,10.333,157.667" LegendLocation="Right" >
+        <Image Name="image" Margin="187,96,388.333,205.667" Source="productionPicture.png" Stretch="Fill" Visibility="Hidden"/>
+        <Image Margin="55,10,648.333,355.667" Source="backwoods maple syrup label.png" Stretch="Fill" RenderTransformOrigin="-0.17,0.458"/>
+        <lvc:CartesianChart Series="{Binding GraphLines}" Margin="260,48,10.333,157.667" Name="Chart" LegendLocation="Right" >
             <lvc:CartesianChart.AxisY>
                 <lvc:Axis Title="Accumulative Pints Produced" LabelFormatter="{Binding YFormatter}"></lvc:Axis>
             </lvc:CartesianChart.AxisY>
             <lvc:CartesianChart.AxisX>
-                <lvc:Axis Title="Date" Labels="{Binding Labels}"></lvc:Axis>
+                <lvc:Axis Title="Date" Labels="{Binding Dates}"></lvc:Axis>
             </lvc:CartesianChart.AxisX>
         </lvc:CartesianChart>
-        <Button Content="New Entry" HorizontalAlignment="Left" Margin="87,300,0,0" VerticalAlignment="Top" Width="118" Click="Btn_Click_New_Entry" FontSize="18" Background="#FF155CFF" BorderBrush="#FF155CFF" Foreground="White" Height="33" RenderTransformOrigin="0.915,0.778"/>
+        <Button Name ="NewEntryBtn" Content="New Entry" HorizontalAlignment="Left" Margin="87,300,0,0" VerticalAlignment="Top" Width="118" Click="Btn_Click_New_Entry" FontSize="18" Background="#FF155CFF" BorderBrush="#FF155CFF" Foreground="White" Height="33" RenderTransformOrigin="0.915,0.778"/>
         <Button Content="Toggle Graph" HorizontalAlignment="Left" Margin="465,10,0,0" VerticalAlignment="Top" Width="118" Click="Btn_Click_Toggle" FontSize="18" Background="#FF155CFF" BorderBrush="#FF155CFF" Foreground="White" Height="33" RenderTransformOrigin="0.915,0.778"/>
-        <DataGrid Name ="DataGrid" ItemsSource="{Binding}" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="132" Margin="260,263,0,0" VerticalAlignment="Top" Width="325">
+        <DataGrid Name ="DataGrid" ItemsSource="{Binding}" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="132" Margin="260,263,0,0" VerticalAlignment="Top" Width="335">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Date"  Binding="{Binding date, Mode=OneWay}"/>
                 <DataGridTextColumn Header="Syrup Produced" Binding="{Binding syrupMadePints, Mode=OneWay}" />
@@ -35,6 +38,14 @@
                 <DataGridTextColumn Header="Syrup/Sap" Binding="{Binding syrupSapRatio, Mode=OneWay}" />
             </DataGrid.Columns>
         </DataGrid>
+        <Button Name ="ConfirmBtn" Content="Confirm" HorizontalAlignment="Left" Margin="87,374,0,0" VerticalAlignment="Top" Width="118" Click="Btn_Click_Confirm" FontSize="18" Background="#FF155CFF" BorderBrush="#FF155CFF" Foreground="White" Height="33" RenderTransformOrigin="0.915,0.778" Visibility="Hidden"/>
+        <Button Name ="CancelBtn" Content="Cancel" HorizontalAlignment="Left" Margin="221,374,0,0" VerticalAlignment="Top" Width="118" Click="Btn_Click_Cancel" FontSize="18" Background="#FF155CFF" BorderBrush="#FF155CFF" Foreground="White" Height="33" RenderTransformOrigin="0.915,0.778" Visibility="Hidden"/>
+        <Label Name ="LabelDate" Content="Date" HorizontalAlignment="Left" Margin="65,284,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.587,0.603" Visibility="Hidden"/>
+        <Label Name ="LabelSyrupProd" Content="Syrup Produced" HorizontalAlignment="Left" Margin="164,284,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <Label Name ="LabelSapCollected" Content="Sap Collected" HorizontalAlignment="Left" Margin="279,282,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <TextBox Name ="DateTxtBox" HorizontalAlignment="Left" Height="23" Margin="65,310,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="80" Visibility="Hidden"/>
+        <TextBox Name ="ProducedTxtBox" HorizontalAlignment="Left" Height="23" Margin="164,310,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="50" Visibility="Hidden"/>
+        <TextBox Name="CollectedTxtBox" HorizontalAlignment="Left" Height="23" Margin="279,310,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="50" Visibility="Hidden"/>
     </Grid>
 
 </Window>

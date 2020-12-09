@@ -15,36 +15,67 @@ namespace BackwoodsMapleTracker
             dataBase.LoadDailySyrupProducedList();
             dataBase.LoadDailyCostList();
         }
-        public string mostRecentSapOverSyrupRatio()
+
+        //gets the most recent sap over syrup ratio
+        public string MostRecentSapOverSyrupRatio()
         {
-            ObservableCollection<DailySyrupProductionRecord> dailyCostList = getDailySyrupProducedList();
-            int i = dailyCostList.Count();
-            DailySyrupProductionRecord mostRecent = dailyCostList.ElementAt(i-1);
-            return mostRecent.syrupSapRatio;
+            ObservableCollection<DailySyrupProductionRecord> dailySyrupProductionList = GetDailySyrupProducedList();
+            DailySyrupProductionRecord mostRecentSapOverSyrupRatio = dailySyrupProductionList.ElementAt(dailySyrupProductionList.Count()-1);
+            return mostRecentSapOverSyrupRatio.syrupSapRatio;
         }
-        public string calcExpectedNextSapOverSyrupRatio()
+
+        //calc the expected next sap over syurup ratio
+        public string CalcExpectedNextSapOverSyrupRatio()
         {
-            return "1/100";
+            return "1 : 32";
         }
-        public int getPintBottlesAvail()
+
+        //gets the pint bottles avail
+        public int GetPintBottlesAvail()
         {
             return dataBase.pintBottlesAvail;
         }
-        public int getHalfPintBottlesAvail()
+
+        //gets the half pint bottles avail
+        public int GetHalfPintBottlesAvail()
         {
             return dataBase.halfPintBottlesAvail;
         }
-        public int getQuartBottlesAvail()
+
+        //gets the quart bottles avail
+        public int GetQuartBottlesAvail()
         {
             return dataBase.quartBottlesAvail;
         }
-        public ObservableCollection<DailySyrupProductionRecord> getDailySyrupProducedList()
+
+        //sets a new value for pint bottles avail
+        public void SetPintBottlesAvail(int newNum)
         {
-            return dataBase.getDailySyrupProducedList();
+            dataBase.UpdatePintsBottlesAvail(newNum);
         }
-        public ObservableCollection<DailyCostRecord> getDailyCostList()
+
+        //sets a new value for half pint bottles avail
+        public void SetHalfPintBottlesAvail(int newNum)
         {
-            return dataBase.getDailyCostList();
+            dataBase.UpdateHalfPintsBottlesAvail(newNum);
+        }
+
+        //sets a new value for quart bottles avail
+        public void SetQuartBottlesAvail(int newNum)
+        {
+            dataBase.UpdateQuartsBottlesAvail(newNum);
+        }
+
+        //gets the DailySyrupProducedList
+        public ObservableCollection<DailySyrupProductionRecord> GetDailySyrupProducedList()
+        {
+            return dataBase.GetDailySyrupProducedList();
+        }
+
+        //gets the DailyCostList
+        public ObservableCollection<DailyCostRecord> GetDailyCostList()
+        {
+            return dataBase.GetDailyCostList();
         }
 
     }

@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BackwoodsMapleTracker"
+        WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
         Title="InventoryScreen" Height="450" Width="800">
     <Grid>
@@ -13,19 +14,20 @@
                 <GradientStop Color="White"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Button Content="Production" HorizontalAlignment="Left" Margin="40,116,0,0" VerticalAlignment="Top" Width="118" Click="Btn_Click_Production" FontSize="18" BorderThickness="1,2,1,1" BorderBrush="#FF155CFF" Background="White" Foreground="#FF6E9AFF" Height="33"/>
-        <Button Content="Financials" HorizontalAlignment="Left" Margin="40,174,0,0" VerticalAlignment="Top" Width="118" Click="Btn_Click_Financials" FontSize="18" Background="White" BorderBrush="#FF155CFF" Foreground="#FF6E9AFF" Height="33"/>
-        <Button Content="Inventory" HorizontalAlignment="Left" Margin="40,231,0,0" VerticalAlignment="Top" Width="118" Click="Btn_Click_Inventory" FontSize="18" Background="White" BorderBrush="#FF155CFF" Foreground="#FF6E9AFF" Height="33"/>
-        <TextBox Height="50" Margin="382,35,248.333,0" TextWrapping="Wrap" Text="Counts:" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="36" FontFamily="Arial Black" Width="163" BorderBrush="White"/>
-        <TextBox Height="33" Margin="264,116,459.333,0" TextWrapping="Wrap" Text="Pints" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="28" FontFamily="Comic Sans MS" BorderBrush="White"/>
-        <TextBox Height="33" Margin="405,116,288.333,0" TextWrapping="Wrap" Text="Quarts" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="28" FontFamily="Comic Sans MS" BorderBrush="White"/>
-        <TextBox Height="33" Margin="554,116,112.333,0" TextWrapping="Wrap" Text="1/2 Pints" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="28" FontFamily="Comic Sans MS" Width="127" BorderBrush="White"/>
-        <TextBox Height="36" Margin="262,171,458.333,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="28" FontFamily="Segoe UI Light" BorderBrush="White"/>
-        <TextBox Height="36" Margin="602,171,158.333,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="28" FontFamily="Segoe UI Light" Width="33" BorderBrush="White"/>
-        <TextBox Height="36" Margin="430,171,314.333,0" TextWrapping="Wrap" Text="25" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="28" FontFamily="Segoe UI Light" BorderBrush="White"/>
-        <Button Content="Edit" HorizontalAlignment="Left" Margin="270,231,0,0" VerticalAlignment="Top" Width="57" Click="Btn_Click_Pints_Edit" FontSize="18" Background="#FF155CFF" BorderBrush="#FF155CFF" Foreground="White" Height="33" RenderTransformOrigin="0.915,0.778"/>
-        <Button Content="Edit" HorizontalAlignment="Left" Margin="425,231,0,0" VerticalAlignment="Top" Width="57" Click="Btn_Click_Quarts_Edit" FontSize="18" Background="#FF155CFF" BorderBrush="#FF155CFF" Foreground="White" Height="33" RenderTransformOrigin="0.915,0.778"/>
-        <Button Content="Edit" HorizontalAlignment="Left" Margin="587,231,0,0" VerticalAlignment="Top" Width="57" Click="Btn_Click_Half_Pints_Edit" FontSize="18" Background="#FF155CFF" BorderBrush="#FF155CFF" Foreground="White" Height="33" RenderTransformOrigin="0.915,0.778"/>
+        <Button Content="Production" HorizontalAlignment="Left" Margin="42,80,0,0" VerticalAlignment="Top" Width="118" Click="Btn_Click_Production" FontSize="18" BorderBrush="#FF155CFF" Background="White" Foreground="#FF6E9AFF" Height="33"/>
+        <Button Content="Financials" HorizontalAlignment="Left" Margin="42,138,0,0" VerticalAlignment="Top" Width="118" Click="Btn_Click_Financials" FontSize="18" Background="White" BorderBrush="#FF155CFF" Foreground="#FF6E9AFF" Height="33"/>
+        <Button Content="Inventory" HorizontalAlignment="Left" Margin="42,196,0,0" VerticalAlignment="Top" Width="118" FontSize="18" Background="White" BorderBrush="#FF155CFF" Foreground="#FF6E9AFF" Height="33" Opacity="0.75" BorderThickness="4,4,4,4"/>
+        <Image Margin="55,10,648.333,355.667" Source="backwoods maple syrup label.png" Stretch="Fill"/>
+        <Label Height="50" Margin="382,35,248.333,0" Content="Counts:" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="36" FontFamily="Arial Black" Width="163" BorderBrush="White"/>
+        <Label Height="44" Margin="260,105,459.333,0" Content="Pints" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="28" FontFamily="Comic Sans MS" BorderBrush="White" Width="74"/>
+        <Label Height="44" Margin="405,105,283.333,0" Content="Quarts" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="28" FontFamily="Comic Sans MS" BorderBrush="White" Width="105"/>
+        <Label Height="44" Margin="554,105,112.333,0" Content="1/2 Pints" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="28" FontFamily="Comic Sans MS" Width="127" BorderBrush="White"/>
+        <Label Name="pintsLabel" Height="44" Margin="277,171,459.333,0" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="28" FontFamily="Segoe UI Light" BorderBrush="White" Width="57"/>
+        <Label Name="halfPintsLabel" Height="44" Margin="594,171,142.333,0" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="28" FontFamily="Segoe UI Light" Width="57" BorderBrush="White"/>
+        <Label Name="quartsLabel" Height="44" Margin="432,171,304.333,0" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="28" FontFamily="Segoe UI Light" BorderBrush="White" Width="57"/>
+        <Button Name="EditPints" Content="Edit" HorizontalAlignment="Left" Margin="270,231,0,0" VerticalAlignment="Top" Width="57" Click="Btn_Click_Pints_Edit" FontSize="18" Background="#FF155CFF" BorderBrush="#FF155CFF" Foreground="White" Height="33" RenderTransformOrigin="0.915,0.778"/>
+        <Button Name="EditQuarts" Content="Edit" HorizontalAlignment="Left" Margin="425,231,0,0" VerticalAlignment="Top" Width="57" Click="Btn_Click_Quarts_Edit" FontSize="18" Background="#FF155CFF" BorderBrush="#FF155CFF" Foreground="White" Height="33" RenderTransformOrigin="0.915,0.778"/>
+        <Button Name="EditHalfPints" Content="Edit" HorizontalAlignment="Left" Margin="587,231,0,0" VerticalAlignment="Top" Width="57" Click="Btn_Click_Half_Pints_Edit" FontSize="18" Background="#FF155CFF" BorderBrush="#FF155CFF" Foreground="White" Height="33" RenderTransformOrigin="0.915,0.778"/>
         <Button Content="+12" HorizontalAlignment="Left" Margin="230,273,0,0" VerticalAlignment="Top" Width="41" Click="Btn_Click_Pints_Plus_12" FontSize="18" Background="#FF155CFF" BorderBrush="#FF155CFF" Foreground="White" Height="33" RenderTransformOrigin="0.915,0.778"/>
         <Button Content="+1" HorizontalAlignment="Left" Margin="277,273,0,0" VerticalAlignment="Top" Width="41" Click="Btn_Click_Pints_Plus_1" FontSize="18" Background="#FF155CFF" BorderBrush="#FF155CFF" Foreground="White" Height="33" RenderTransformOrigin="0.915,0.778"/>
         <Button Content="-1" HorizontalAlignment="Left" Margin="323,273,0,0" VerticalAlignment="Top" Width="41" Click="Btn_Click_Pints_Minus_1" FontSize="18" Background="#FF155CFF" BorderBrush="#FF155CFF" Foreground="White" Height="33" RenderTransformOrigin="0.915,0.778"/>
@@ -35,5 +37,8 @@
         <Button Content="+12" HorizontalAlignment="Left" Margin="547,273,0,0" VerticalAlignment="Top" Width="41" Click="Btn_Click_Half_Pints_Plus_12" FontSize="18" Background="#FF155CFF" BorderBrush="#FF155CFF" Foreground="White" Height="33" RenderTransformOrigin="0.915,0.778"/>
         <Button Content="+1" HorizontalAlignment="Left" Margin="594,273,0,0" VerticalAlignment="Top" Width="41" Click="Btn_Click_Half_Pints_Plus_1" FontSize="18" Background="#FF155CFF" BorderBrush="#FF155CFF" Foreground="White" Height="33" RenderTransformOrigin="0.915,0.778"/>
         <Button Content="-1" HorizontalAlignment="Left" Margin="640,273,0,0" VerticalAlignment="Top" Width="41" Click="Btn_Click_Half_Pints_Minus_1" FontSize="18" Background="#FF155CFF" BorderBrush="#FF155CFF" Foreground="White" Height="33" RenderTransformOrigin="0.915,0.778"/>
+        <TextBox Name="pintsEditTxtBox" HorizontalAlignment="Left" Height="23" Margin="277,182,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="57" Visibility="Hidden"/>
+        <TextBox Name="quartsEditTxtBox" HorizontalAlignment="Left" Height="23" Margin="432,182,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="57" Visibility="Hidden"/>
+        <TextBox Name="halfPintsEditTxtBox" HorizontalAlignment="Left" Height="23" Margin="594,182,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="57" Visibility="Hidden"/>
     </Grid>
 </Window>

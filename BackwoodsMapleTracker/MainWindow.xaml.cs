@@ -21,25 +21,54 @@ namespace BackwoodsMapleTracker
         public MainWindow()
         {
             InitializeComponent();
+            DisplayMostRecentSapOverSyrupRatio();
+            DisplayExpectedNextSapOverSyrupRatio();
+            DisplayEmptyJarsAvailable();
         }
 
+        //moves to production screen
         private void Button_Click_Production(object sender, RoutedEventArgs e)
         {
-            Production prod = new Production();
-            prod.Show();
+            Production productionScreen = new Production();
+            productionScreen.Show();
+            this.Close();
         }
 
+        //moves to financials screen
         private void Button_Click_Financials(object sender, RoutedEventArgs e)
         {
-            FinancialsScreen fin = new FinancialsScreen();
-            fin.Show();
+            FinancialsScreen financialsScreen = new FinancialsScreen();
+            financialsScreen.Show();
+            this.Close();
         }
 
+        //moves to inventory screen
         private void Button_Click_Inventory(object sender, RoutedEventArgs e)
         {
-            InventoryScreen inven = new InventoryScreen();
-            inven.Show();
+            InventoryScreen inventoryScreen = new InventoryScreen();
+            inventoryScreen.Show();
+            this.Close();
         }
 
+        //displays most recent sap over syrup ratio
+        private void DisplayMostRecentSapOverSyrupRatio()
+        {
+            string mostRecentSapOverSyrup = control.MostRecentSapOverSyrupRatio();
+            currentlyLabel.Content = mostRecentSapOverSyrup;
+        }
+
+        //displays the expected next sap over syrup ratio
+        private void DisplayExpectedNextSapOverSyrupRatio()
+        {
+            string expectedNextRatio = control.CalcExpectedNextSapOverSyrupRatio();
+            nextLabel.Content = expectedNextRatio;
+        }
+
+        //displays the total number of jars avail
+        private void DisplayEmptyJarsAvailable()
+        {
+            int bottlesAvail = control.GetPintBottlesAvail() + control.GetQuartBottlesAvail() + control.GetHalfPintBottlesAvail();
+            jarsAvailLabel.Content = bottlesAvail;
+        }
     }
 }
