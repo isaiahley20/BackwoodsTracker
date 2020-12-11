@@ -22,7 +22,7 @@
         <Image Margin="55,10,648.333,355.667" Source="backwoods maple syrup label.png" Stretch="Fill" RenderTransformOrigin="-0.17,0.458"/>
         <lvc:CartesianChart Series="{Binding GraphLines}" Margin="260,48,10.333,157.667" Name="Chart" LegendLocation="Right" >
             <lvc:CartesianChart.AxisY>
-                <lvc:Axis Title="Accumulative Pints Produced" LabelFormatter="{Binding YFormatter}"></lvc:Axis>
+                <lvc:Axis Title="Pints Produced" LabelFormatter="{Binding YFormatter}"></lvc:Axis>
             </lvc:CartesianChart.AxisY>
             <lvc:CartesianChart.AxisX>
                 <lvc:Axis Title="Date" Labels="{Binding Dates}"></lvc:Axis>

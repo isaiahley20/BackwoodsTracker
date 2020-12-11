@@ -16,12 +16,13 @@ namespace BackwoodsMapleTracker
             LoadDailySyrupProducedList();
             LoadDailyCostList();
             LoadJarsAvail();
-            /*
-            MongoClient dbClient = new MongoClient("mongodb+srv://IsaiahLey:<password>@mapletracker.kk6ey.mongodb.net/<maple_tracker>?retryWrites=true&w=majority");
+            
+            var dbClient = new MongoClient("mongodb+srv://IsaiahLey:password@maple_tracker.kk6ey.mongodb.net/maple_tracker?retryWrites=true&w=majority");
 
             var database = dbClient.GetDatabase("maple_tracker");
             var dailyCostRecords = database.GetCollection<BsonDocument>("daily_cost_records");
             var dailySyrupProductionRecords = database.GetCollection<BsonDocument>("daily_syrup_production_records");
+
 
             var doc = dailyCostRecords.Find(new BsonDocument()).ToList();
             /*
@@ -63,53 +64,12 @@ namespace BackwoodsMapleTracker
                 dailySyrupProducedList.Add(new DailySyrupProductionRecord("10/10/2020", 1, 28));
                 dailySyrupProducedList.Add(new DailySyrupProductionRecord("10/12/2020", 2, 29));
                 dailySyrupProducedList.Add(new DailySyrupProductionRecord("10/13/2020", 2, 30));
-                dailySyrupProducedList.Add(new DailySyrupProductionRecord("10/13/2020", 2, 30));
-                dailySyrupProducedList.Add(new DailySyrupProductionRecord("10/13/2020", 2, 30));
-                dailySyrupProducedList.Add(new DailySyrupProductionRecord("10/13/2020", 2, 30));
-                dailySyrupProducedList.Add(new DailySyrupProductionRecord("10/13/2020", 2, 30));
-                dailySyrupProducedList.Add(new DailySyrupProductionRecord("10/13/2020", 2, 30));
-                dailySyrupProducedList.Add(new DailySyrupProductionRecord("10/13/2020", 2, 30));
-                dailySyrupProducedList.Add(new DailySyrupProductionRecord("10/13/2020", 2, 30));
-                dailySyrupProducedList.Add(new DailySyrupProductionRecord("10/13/2020", 2, 30));
-                dailySyrupProducedList.Add(new DailySyrupProductionRecord("10/13/2020", 2, 30));
-                dailySyrupProducedList.Add(new DailySyrupProductionRecord("10/13/2020", 2, 30));
-                dailySyrupProducedList.Add(new DailySyrupProductionRecord("10/13/2020", 2, 30));
             }
         }
         public void LoadDailyCostList()
         {
             if (dailyCostList.Count() == 0)
             {
-                dailyCostList.Add(new DailyCostRecord("10/14/2020", "Liquid Propane", 150.57));
-                dailyCostList.Add(new DailyCostRecord("10/15/2020", "Jars", 32.78));
-                dailyCostList.Add(new DailyCostRecord("10/16/2020", "Cleaning Supplies", 47.82));
-                dailyCostList.Add(new DailyCostRecord("10/14/2020", "Liquid Propane", 150.57));
-                dailyCostList.Add(new DailyCostRecord("10/15/2020", "Jars", 32.78));
-                dailyCostList.Add(new DailyCostRecord("10/16/2020", "Cleaning Supplies", 47.82));
-                dailyCostList.Add(new DailyCostRecord("10/14/2020", "Liquid Propane", 150.57));
-                dailyCostList.Add(new DailyCostRecord("10/15/2020", "Jars", 32.78));
-                dailyCostList.Add(new DailyCostRecord("10/16/2020", "Cleaning Supplies", 47.82));
-                dailyCostList.Add(new DailyCostRecord("10/14/2020", "Liquid Propane", 150.57));
-                dailyCostList.Add(new DailyCostRecord("10/15/2020", "Jars", 32.78));
-                dailyCostList.Add(new DailyCostRecord("10/16/2020", "Cleaning Supplies", 47.82));
-                dailyCostList.Add(new DailyCostRecord("10/14/2020", "Liquid Propane", 150.57));
-                dailyCostList.Add(new DailyCostRecord("10/15/2020", "Jars", 32.78));
-                dailyCostList.Add(new DailyCostRecord("10/16/2020", "Cleaning Supplies", 47.82));
-                dailyCostList.Add(new DailyCostRecord("10/14/2020", "Liquid Propane", 150.57));
-                dailyCostList.Add(new DailyCostRecord("10/15/2020", "Jars", 32.78));
-                dailyCostList.Add(new DailyCostRecord("10/16/2020", "Cleaning Supplies", 47.82));
-                dailyCostList.Add(new DailyCostRecord("10/14/2020", "Liquid Propane", 150.57));
-                dailyCostList.Add(new DailyCostRecord("10/15/2020", "Jars", 32.78));
-                dailyCostList.Add(new DailyCostRecord("10/16/2020", "Cleaning Supplies", 47.82));
-                dailyCostList.Add(new DailyCostRecord("10/14/2020", "Liquid Propane", 150.57));
-                dailyCostList.Add(new DailyCostRecord("10/15/2020", "Jars", 32.78));
-                dailyCostList.Add(new DailyCostRecord("10/16/2020", "Cleaning Supplies", 47.82));
-                dailyCostList.Add(new DailyCostRecord("10/14/2020", "Liquid Propane", 150.57));
-                dailyCostList.Add(new DailyCostRecord("10/15/2020", "Jars", 32.78));
-                dailyCostList.Add(new DailyCostRecord("10/16/2020", "Cleaning Supplies", 47.82));
-                dailyCostList.Add(new DailyCostRecord("10/14/2020", "Liquid Propane", 150.57));
-                dailyCostList.Add(new DailyCostRecord("10/15/2020", "Jars", 32.78));
-                dailyCostList.Add(new DailyCostRecord("10/16/2020", "Cleaning Supplies", 47.82));
                 dailyCostList.Add(new DailyCostRecord("10/14/2020", "Liquid Propane", 150.57));
                 dailyCostList.Add(new DailyCostRecord("10/15/2020", "Jars", 32.78));
                 dailyCostList.Add(new DailyCostRecord("10/16/2020", "Cleaning Supplies", 47.82));

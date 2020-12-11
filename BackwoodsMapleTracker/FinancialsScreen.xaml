@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:BackwoodsMapleTracker"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
-        Title="FinancialsScreen" Height="450" Width="800">
+        Title="Financials" Height="450" Width="800">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
@@ -20,7 +20,7 @@
         <Button Content="Inventory" HorizontalAlignment="Left" Margin="42,196,0,0" VerticalAlignment="Top" Width="118" Click="Btn_Click_Inventory" FontSize="18" Background="White" BorderBrush="#FF155CFF" Foreground="#FF6E9AFF" Height="33"/>
         <lvc:CartesianChart Name="Chart" Series="{Binding GraphLines}" Margin="260,48,10.333,157.667" LegendLocation="Right" >
             <lvc:CartesianChart.AxisY>
-                <lvc:Axis Title="Profits" LabelFormatter="{Binding YFormatter}"></lvc:Axis>
+                <lvc:Axis Title="Dollar Amount" LabelFormatter="{Binding YFormatter}"></lvc:Axis>
             </lvc:CartesianChart.AxisY>
             <lvc:CartesianChart.AxisX>
                 <lvc:Axis Title="Date" Labels="{Binding Dates}"></lvc:Axis>
@@ -29,7 +29,7 @@
         <Button Name="NewEntryBtn" Content="New Entry" HorizontalAlignment="Left" Margin="87,300,0,0" VerticalAlignment="Top" Width="118" Click="Btn_Click_New_Entry" FontSize="18" Background="#FF155CFF" BorderBrush="#FF155CFF" Foreground="White" Height="33" RenderTransformOrigin="0.915,0.778"/>
         <Button Content="Toggle Graph" HorizontalAlignment="Left" Margin="465,10,0,0" VerticalAlignment="Top" Width="118" Click="Btn_Click_Toggle" FontSize="18" Background="#FF155CFF" BorderBrush="#FF155CFF" Foreground="White" Height="33" RenderTransformOrigin="0.915,0.778"/>
         <Image Margin="55,10,648.333,355.667" Source="backwoods maple syrup label.png" Stretch="Fill"/>
-        <DataGrid Name ="DataGrid" ItemsSource="{Binding}" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="132" Margin="260,263,0,0" VerticalAlignment="Top" Width="245">
+        <DataGrid Name ="DataGrid" ItemsSource="{Binding}" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="132" Margin="260,263,0,0" VerticalAlignment="Top" Width="365">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Date"  Binding="{Binding date, Mode=OneWay}"/>
                 <DataGridTextColumn Header="Name" Binding="{Binding name, Mode=OneWay}" />

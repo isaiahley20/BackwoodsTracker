@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:BackwoodsMapleTracker"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
-        Title="InventoryScreen" Height="450" Width="800">
+        Title="Inventory" Height="450" Width="800">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
@@ -18,7 +18,7 @@
         <Button Content="Financials" HorizontalAlignment="Left" Margin="42,138,0,0" VerticalAlignment="Top" Width="118" Click="Btn_Click_Financials" FontSize="18" Background="White" BorderBrush="#FF155CFF" Foreground="#FF6E9AFF" Height="33"/>
         <Button Content="Inventory" HorizontalAlignment="Left" Margin="42,196,0,0" VerticalAlignment="Top" Width="118" FontSize="18" Background="White" BorderBrush="#FF155CFF" Foreground="#FF6E9AFF" Height="33" Opacity="0.75" BorderThickness="4,4,4,4"/>
         <Image Margin="55,10,648.333,355.667" Source="backwoods maple syrup label.png" Stretch="Fill"/>
-        <Label Height="50" Margin="382,35,248.333,0" Content="Counts:" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="36" FontFamily="Arial Black" Width="163" BorderBrush="White"/>
+        <Label Height="50" Margin="247,26,83.333,0" Content="Empty Jars Available:" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="36" FontFamily="Arial Black" Width="463" BorderBrush="White"/>
         <Label Height="44" Margin="260,105,459.333,0" Content="Pints" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="28" FontFamily="Comic Sans MS" BorderBrush="White" Width="74"/>
         <Label Height="44" Margin="405,105,283.333,0" Content="Quarts" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="28" FontFamily="Comic Sans MS" BorderBrush="White" Width="105"/>
         <Label Height="44" Margin="554,105,112.333,0" Content="1/2 Pints" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="28" FontFamily="Comic Sans MS" Width="127" BorderBrush="White"/>
