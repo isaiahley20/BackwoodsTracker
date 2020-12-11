@@ -38,11 +38,13 @@ namespace BackwoodsMapleTracker
             DailySyrupProductionRecord oneSyrupProductionRecordForChart;
             var pintsProducedYAxis = new ChartValues<double>();
             Dates = new string[dailyProductionRecords.Count()];
+            double totalPintsProduced = 0;
             for (int i = 0; i < dailyProductionRecords.Count(); i++)
             {
                 oneSyrupProductionRecordForChart = dailyProductionRecords.ElementAt<DailySyrupProductionRecord>(i);
-                //gets the syrup made
-                pintsProducedYAxis.Add(oneSyrupProductionRecordForChart.syrupMadePints);
+                //gets the syrup made for that day and adds to the total
+                totalPintsProduced = totalPintsProduced + oneSyrupProductionRecordForChart.syrupMadePints;
+                pintsProducedYAxis.Add(totalPintsProduced);
                 //gets the date that syrup was made
                 Dates[i] = oneSyrupProductionRecordForChart.date;
             }
