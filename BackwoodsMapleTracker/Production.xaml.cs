@@ -90,7 +90,7 @@ namespace BackwoodsMapleTracker
             {
                 image.Visibility = Visibility.Hidden;
                 Chart.Visibility = Visibility.Visible;
-                DataGrid.Margin = new Thickness(425, 263, 0, 0);
+                DataGrid.Margin = new Thickness(260, 263, 0, 0);
                 DataGrid.Height = 132;
             }
         }

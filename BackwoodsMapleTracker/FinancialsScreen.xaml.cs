@@ -85,12 +85,12 @@ namespace BackwoodsMapleTracker
             if(Chart.Visibility == Visibility.Visible)
             {
                 Chart.Visibility = Visibility.Hidden;
-                DataGrid.Margin = new Thickness(425, 70, 0, 0);
+                DataGrid.Margin = new Thickness(400, 70, 0, 0);
                 DataGrid.Height = 320;
             } else
             {
                 Chart.Visibility = Visibility.Visible;
-                DataGrid.Margin = new Thickness(425, 263, 0, 0);
+                DataGrid.Margin = new Thickness(260, 263, 0, 0);
                 DataGrid.Height = 132;
             }
         }
